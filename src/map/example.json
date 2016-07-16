@@ -1,0 +1,44 @@
+{
+	"layers": [
+		{
+			"name": "foo",
+			"tiles": [
+				{ "x": 0, "y": 0, "src": { "x": 0, "y": 0 } }
+			],
+			"autoTiles": [
+				{ "x": 0, "y": 0, "set": 0 }
+			]
+		}
+	],
+	"events": [
+		{
+			"name": "Foo Event",
+			"type": "npc",
+			"unique": true
+		},
+		{
+			"type": "trigger"
+		},
+		{
+			"type": "particle"
+		}
+	],
+	"blocks": [
+		{ "x": 0, "y": 0 }
+	],
+	"properties": {
+		"width": 640,
+		"height": 480,
+		"gridSize": 32,
+		"perspective": "orthographic",
+		"tileset": "assets/path/to/image.png",
+		"autoTilesets": [
+			"assets/path/to/autotile.png",
+			"assets/path/to/another.png"
+		],
+		"sounds": [
+			"assets/audio/sounds/crickets.mp3"
+		],
+		"eventLayer": "foo"
+	}
+}

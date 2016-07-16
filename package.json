@@ -1,0 +1,29 @@
+{
+  "name": "vorge",
+  "version": "1.0.0",
+  "description": "2D JS Game Framework",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndugger/placeholder.git"
+  },
+  "author": "Nick Dugger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndugger/placeholder/issues"
+  },
+  "homepage": "https://github.com/ndugger/placeholder#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1"
+  }
+}
