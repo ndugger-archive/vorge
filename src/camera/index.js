@@ -1,5 +1,5 @@
-import { internal } from './sys-state';
-import { moveTypes } from './sys-common';
+import { internal } from '../system/sys-state';
+import { moveTypes } from '../system/sys-common';
 
 export function follow (target) {
 	const { camera } = internal;

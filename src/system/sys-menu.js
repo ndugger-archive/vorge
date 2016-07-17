@@ -1,15 +1,11 @@
-function openMenu () {
-	return this;
+export function openMenu () {
+	
 }
 
-function closeMenu () {
-	return this;
+export function closeMenu () {
+
 }
 
-export default function menu (controls = [], config = {}) {
+export function loadMenu () {
 
-	return {
-		open: openMenu,
-		close: closeMenu
-	}
 }

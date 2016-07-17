@@ -4,6 +4,7 @@ import ascii from '../ascii';
 
 import * as system from './system';
 
+export * as camera from './camera';
 export * as entities from './entities';
 export * as map from './map';
 
@@ -81,7 +82,7 @@ export function main (container = document.body) {
 		}
 	}).then(player => {
 		vorge.entities.player.use(player);
-		vorge.system.camera.follow(player);
+		vorge.camera.follow(player);
 	})
 	
 	const moveKeys = [

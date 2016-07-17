@@ -1,4 +1,3 @@
-export * as camera from './sys-camera';
 export * as gamepad from './sys-gamepad';
 
 export common from './sys-common';
