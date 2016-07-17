@@ -1,4 +1,5 @@
-import { image } from '../graphics';
+import { image, text } from '../graphics';
+import { compass, moveTypes } from './sys-common';
 
 export const map = { tileLayers: [], playLayer: 0 };
 
@@ -10,7 +11,8 @@ export const player = {
 	dir: { prev: null, next: 'south' },
 	destination: { x: null, y: null },
 	moving: false,
-	sprite: image({ data: new Image() })
+	sprite: image({ data: new Image() }),
+	label: text()
 };
 
 export const camera = {
@@ -21,7 +23,7 @@ export const camera = {
 
 export const settings = {
 	movement: {
-		type: 'pixel',
+		type: 'tile',
 		dirs: 4
 	}
 };

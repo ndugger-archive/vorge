@@ -1,4 +1,4 @@
-export default function text ({ content = '', x = 0, y = 0, style = { font: { }, fill: '', stroke: { } } }) {
+export default function text ({ content = '', x = 0, y = 0, style = { font: { }, fill: '', stroke: { } } } = { }) {
     if (!style.hasOwnProperty('font')) {
         style.font = { };
     }

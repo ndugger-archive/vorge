@@ -53,7 +53,7 @@ function isBetweenTiles (dir) {
 	return false;
 }
 
-const N = 4; // N === number of tiles per second;
+const N = 3; // N === number of tiles per second;
 
 export default function updatePlayer (time) {
 	const { player, map, settings } = internal;
@@ -106,4 +106,9 @@ export default function updatePlayer (time) {
 
 	player.sprite.x = player.x - (player.width / 2) + (gridSize / 2) - internal.camera.x;
 	player.sprite.y = player.y - player.height + gridSize - internal.camera.y;
+
+	if (player.label && player.label.cached) {
+		player.label.x = player.x - (player.label.cached.data.width / 2) + (gridSize / 2) - internal.camera.x;
+		player.label.y = player.y - player.height + gridSize - player.label.cached.data.height - internal.camera.y;
+	}
 }

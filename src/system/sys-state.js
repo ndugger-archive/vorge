@@ -11,7 +11,8 @@ export const internal = Object.seal({
 
 	ext: {},
 
-	started: false
+	started: false,
+	killed: false
 });
 
 export default Object.freeze({

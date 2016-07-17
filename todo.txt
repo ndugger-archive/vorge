@@ -9,3 +9,6 @@ Vorge TODO List for Personal Record (Not Official)
 
 [ ] Right now, the walking animation is specific to the test sprite; I need to
     modify it--make it based off of speed and number of animation frames
+
+[ ] Optimize render calls by caching the context and passing that around
+    instead of the canvas

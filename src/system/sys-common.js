@@ -7,10 +7,10 @@ export const compass = Object.freeze({
 
 export const fps = 1000 / 60;
 
-export const moveTypes = {
+export const moveTypes = Object.freeze({
 	tile: 'tile',
 	pixel: 'pixel'
-};
+});
 
 export default Object.freeze({
 	compass,

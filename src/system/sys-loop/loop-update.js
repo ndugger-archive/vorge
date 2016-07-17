@@ -1,4 +1,4 @@
-import { update as updateCamera } from '../sys-camera';
+import { update as updateCamera } from '../../camera';
 import { update as updateMap } from '../../map';
 import { update as updatePlayer } from '../../entities/ent-player';
 

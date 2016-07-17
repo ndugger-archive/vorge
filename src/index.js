@@ -76,9 +76,10 @@ export function main (container = document.body) {
 		x: 128,
 		y: 128,
 		properties: {
-			width: 560 / 8,
-			height: 280 / 4,
-			spritesheet: 'sprite.png'
+			name: 'Unnamed Player',
+			width: 32,//560 / 8,
+			height: 48,//280 / 4,
+			spritesheet: 'sprite-xp.png'
 		}
 	}).then(player => {
 		vorge.entities.player.use(player);
