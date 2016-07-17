@@ -7,10 +7,11 @@ export const internal = Object.seal({
 	map: defaults.map,
 	paused: false,
 	player: defaults.player,
-	running: false,
 	settings: defaults.settings,
 
 	ext: {},
+
+	started: false
 });
 
 export default Object.freeze({
@@ -25,7 +26,6 @@ export default Object.freeze({
 	get player () { return internal.player },
 
 	get paused () { return internal.paused },
-	get running () { return internal.running },
 
 	get ext () { return internal.ext }
 

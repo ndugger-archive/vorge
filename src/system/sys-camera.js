@@ -19,8 +19,8 @@ export function update () {
 	}
 	
 	const target = {
-		x: camera.target.x + (map.gridSize / 2) - (canvas.width / 2),
-		y: camera.target.y + (map.gridSize / 2) - (canvas.height / 2)
+		x: Math.round(camera.target.x + (map.gridSize / 2) - (canvas.width / 2)),
+		y: Math.round(camera.target.y + (map.gridSize / 2) - (canvas.height / 2))
 	};
 
 	// Set the proper X coordinate

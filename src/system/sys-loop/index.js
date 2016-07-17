@@ -1,15 +1,16 @@
-import state, { internal } from '../sys-state';
+import { internal } from '../sys-state';
 
 import update from './loop-update';
 import render from './loop-render';
 
 export default function loop () {
-	if (internal.running) {
+
+	if (internal.started) {
 		return;
 	}
 
 	update();
 	render();
 
-	internal.running = true;
+	internal.started = true;
 }
