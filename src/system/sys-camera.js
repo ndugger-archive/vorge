@@ -1,4 +1,5 @@
 import { internal } from './sys-state';
+import { moveTypes } from './sys-common';
 
 export function follow (target) {
 	const { camera } = internal;
@@ -7,12 +8,13 @@ export function follow (target) {
 }
 
 export function update () {
-	const { camera, canvas, map } = internal;
+	const { camera, canvas, map, settings } = internal;
 
+	const isTileBased = settings.movement.type === moveTypes.tile;
 	const notMovingX = camera.target.x === camera.target.destination.x;
 	const notMovingY = camera.target.y === camera.target.destination.y;
 
-	if (!camera.target.moving && (internal.settings.movement.type === 'tile' && notMovingX && notMovingY)) {
+	if (!camera.target.moving && (isTileBased && notMovingX && notMovingY)) {
 		return;
 	}
 	

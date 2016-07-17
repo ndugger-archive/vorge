@@ -6,3 +6,6 @@ Vorge TODO List for Personal Record (Not Official)
     tile before you actually start to go in the next direction
 
 [X] Implement setting flag to switch between tile-based and pixel-based
+
+[ ] Right now, the walking animation is specific to the test sprite; I need to
+    modify it--make it based off of speed and number of animation frames
