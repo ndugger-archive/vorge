@@ -9,13 +9,16 @@ export function follow (target) {
 export function update () {
 	const { camera, canvas, map } = internal;
 
-	if (!camera.target.moving) {
+	const notMovingX = camera.target.x === camera.target.destination.x;
+	const notMovingY = camera.target.y === camera.target.destination.y;
+
+	if (!camera.target.moving && (internal.settings.movement.type === 'tile' && notMovingX && notMovingY)) {
 		return;
 	}
 	
 	const target = {
-		x: camera.target.x + (camera.target.width / 2) - (canvas.width / 2),
-		y: camera.target.y + (camera.target.height / 2) - (canvas.height / 2)
+		x: camera.target.x + (map.gridSize / 2) - (canvas.width / 2),
+		y: camera.target.y + (map.gridSize / 2) - (canvas.height / 2)
 	};
 
 	// Set the proper X coordinate

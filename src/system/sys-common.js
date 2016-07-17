@@ -5,6 +5,8 @@ export const compass = Object.freeze({
 	west: 'west'
 });
 
+export const fps = 1000 / 60;
+
 export const moveTypes = {
 	tile: 'tile',
 	pixel: 'pixel'
@@ -12,5 +14,6 @@ export const moveTypes = {
 
 export default Object.freeze({
 	compass,
+	fps,
 	moveTypes
 })

@@ -6,6 +6,16 @@ import renderPolygon from './render-polygon';
 import renderRectangle from './render-rectangle';
 import renderText from './render-text';
 
+function warnUnknown (unknown = { warned: false }) {
+    if (unknown.warned) {
+        return;
+    }
+
+    console.warn('Cannot render unknown object, ' + JSON.stringify(unknown));
+
+    unknown.warned = true;
+}
+
 function renderGroup (canvas, group) {
     let index = 0;
 
@@ -22,12 +32,13 @@ const types = {
     image: renderImage,
     polygon: renderPolygon,
     rectangle: renderRectangle,
-    text: renderText
+    text: renderText,
+    unknown: warnUnknown
 };
 
 export function render (entity = { }) {
     const canvas = state.canvas;
-    const { type } = entity;
+    const { type = 'unknown' } = entity;
 
     return types[type](canvas, entity);
 }

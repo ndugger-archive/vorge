@@ -1,47 +1,19 @@
-import { image } from '../graphics';
+import * as defaults from './sys-defaults';
 
-const EMPTY_CAMERA = {
-	x: 0,
-	y: 0,
-	target: { 
-		x: 0, y: 0, width: 0, height: 0 
-	}
-};
-
-const EMPTY_MAP = { tileLayers: [], playLayer: 0 };
-
-const EMPTY_PLAYER = {
-	width: 32,
-	height: 32,
-	x: 256,
-	y: 256,
-	dir: { prev: null, next: 'south' },
-	destination: { x: null, y: null },
-	moving: false,
-	sprite: image({ data: new Image() })
-};
-
-const DEFAULT_SETTINGS = {
-	movement: {
-		type: 'pixel',
-		dirs: 4
-	}
-};
-
-export const internal = {
-	camera: EMPTY_CAMERA,
+export const internal = Object.seal({
+	camera: defaults.camera,
 	canvas : document.createElement('canvas'),
 	frame: 0,
-	map: EMPTY_MAP,
+	map: defaults.map,
 	paused: false,
-	player: EMPTY_PLAYER,
+	player: defaults.player,
 	running: false,
-	settings: DEFAULT_SETTINGS,
+	settings: defaults.settings,
 
 	ext: {},
-};
+});
 
-export default Object.seal({
+export default Object.freeze({
 
 	get width () { return internal.canvas.width },
 	get height () { return internal.canvas.height },

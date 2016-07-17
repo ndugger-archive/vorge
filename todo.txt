@@ -1,0 +1,8 @@
+==================================================================================
+Vorge TODO List for Personal Record (Not Official)
+==================================================================================
+
+[ ] For movement, when you change directions, wait until you reach the destination 
+    tile before you actually start to go in the next direction
+
+[X] Implement setting flag to switch between tile-based and pixel-based

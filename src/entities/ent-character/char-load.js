@@ -6,7 +6,7 @@ export default async function loadCharacter ({ x, y, properties }) {
 
 	const dir = { prev: null, next: 'south' };
 	const moving = false;
-	const destination = { x: null, y: null };
+	const destination = { x, y };
 
 	const sprite = image({ 
 		x,
