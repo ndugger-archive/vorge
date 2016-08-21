@@ -7,8 +7,14 @@ Vorge TODO List for Personal Record (Not Official)
 
 [X] Implement setting flag to switch between tile-based and pixel-based
 
-[ ] Right now, the walking animation is specific to the test sprite; I need to
-    modify it--make it based off of speed and number of animation frames
+[ ] Implement walking animation based on speed and number of walking frames
 
 [ ] Optimize render calls by caching the context and passing that around
     instead of the canvas
+
+[ ] Make maps able to instantiate with a path to a json file instead of
+    the actual map data in objects
+
+[ ] Write a handful of built-in scripts
+
+[ ] Refactor the UI & UI Controls modules

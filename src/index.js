@@ -10,7 +10,7 @@ export TileMap from './tilemap';
 // ======================================================
 
 // Temp TEST code:
-(() => {
+/*(() => {
 
 	const Vorge = exports;
 
@@ -23,7 +23,7 @@ export TileMap from './tilemap';
 					let alt = true;
 					for (let x = 0; x < 960; x += 32) {
 						for (let y = 0; y < 960; y += 32) {
-							tiles.push({ 
+							tiles.push({
 								x, y, src: { x: alt ? 32 : 192, y: alt ? 128 : 224 }
 							});
 							alt = !alt;
@@ -56,4 +56,4 @@ export TileMap from './tilemap';
 
 	window.Vorge = Vorge;
 
-})();
+})();*/
