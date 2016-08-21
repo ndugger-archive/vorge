@@ -1,3 +1,3 @@
-export image from './gfx-image';
-export svg from './gfx-svg';
-export text from './gfx-text';
+export Graphic from './gfx-graphic';
+export Text from './gfx-text';
+export Texture from './gfx-texture';

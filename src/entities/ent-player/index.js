@@ -1,14 +1,49 @@
-import { internal } from '../../system/sys-state';
-import { load, render as renderCharacter } from '../ent-character';
+import * as State from '../../system/sys-state';
 
-export update from './player-update';
+import Character from '../ent-character';
 
-export { load }
+export default class Player extends Character {
 
-export function render () {
-	return renderCharacter(internal.player);
-}
+	async use ( ) {
 
-export function use (player) {
-	internal.player = player;
+		if ( !this.loaded ) {
+			await this.load( );
+		}
+		
+		State.internal.player = this;
+	}
+
+	move ( dir, keydown ) {
+
+		if ( keydown ) {
+
+			if ( this.moving ) {
+
+				if ( this.dir.next === dir ) {
+					return;
+				}
+
+				this.dir.prev = this.dir.next;
+			}
+
+			this.dir.next = dir;
+			this.moving = true;
+		}
+		else {
+
+			if ( this.dir.prev ) {
+
+				if ( this.dir.prev !== dir ) {
+
+					this.dir.next = this.dir.prev;
+				}
+
+				this.dir.prev = null;
+			}
+			else {
+
+				this.moving = false;
+			}
+		}
+	}
 }

@@ -1,53 +1,23 @@
 import 'babel-polyfill';
 
-import ascii from '../ascii';
+export * as System from './system';
+export * as Graphics from './graphics';
+export * as Entities from './entities';
+export TileMap from './tilemap';
 
-import * as system from './system';
-
-export * as camera from './camera';
-export * as entities from './entities';
-export * as map from './map';
-
-export { system };
-
-export function main (container = document.body) {
-	const { state } = system;
-	
-	state.canvas.width = container.offsetWidth;
-	state.canvas.height = container.offsetHeight;
-
-	while (container.firstChild) container.firstChild.remove();
-
-	container.appendChild(state.canvas);
-
-	system.loop();
-
-	console.log('\n' + ascii + '\n\n\n');
-}
-
-
-
-
-
-
-
-
+// ======================================================
 
 // Temp TEST code:
 (() => {
 
+	const Vorge = exports;
 
-	const vorge = exports; // import * as vorge from 'vorge';
-
-	vorge.main(document.getElementById('vorgeContainer'));
-
-	vorge.map.load({
+	const testMap = {
 		layers: [
 			{
 				name: 'ground',
 				tiles: (() => {
 					const tiles = [];
-
 					let alt = true;
 					for (let x = 0; x < 960; x += 32) {
 						for (let y = 0; y < 960; y += 32) {
@@ -58,7 +28,6 @@ export function main (container = document.body) {
 						}
 						alt = !alt;
 					}
-
 					return tiles;
 				})()
 			}
@@ -70,52 +39,16 @@ export function main (container = document.body) {
 			tileset: 'tileset.png',
 			eventLayer: 'ground'
 		}
-	}).then(vorge.map.use);
+	};
 
-	vorge.entities.player.load({
-		x: 128,
-		y: 128,
-		properties: {
-			name: 'Unnamed Player',
-			width: 32,//560 / 8,
-			height: 48,//280 / 4,
-			spritesheet: 'sprite-xp.png'
-		}
-	}).then(player => {
-		vorge.entities.player.use(player);
-		vorge.camera.follow(player);
-	})
-	
-	const moveKeys = [
-		{ dir: 'north', code: 87 },
-		{ dir: 'east', code: 68 },
-		{ dir: 'south', code: 83 },
-		{ dir: 'west', code: 65 }
-	];
+	Vorge.System.main(document.getElementById('vorgeContainer'));
 
-	window.addEventListener('keydown', e => {
-		const { keyCode } = e;
+	const map = new Vorge.TileMap(testMap);
+	map.load().then(map => map.use());
 
-		if (moveKeys.some(key => key.code === keyCode)) {
-			const key = moveKeys.find(key => key.code === keyCode);
+	const player = new Vorge.Entities.Player(128, 128, { width: 32, height: 48, spritesheet: 'sprite-xp.png' });
+	player.load().then(player => player.use());
 
-			vorge.system.gamepad.move(key.dir, true);
-		}
-	});
-
-	window.addEventListener('keyup', e => {
-		const { keyCode } = e;
-
-		if (moveKeys.some(key => key.code === keyCode)) {
-			const key = moveKeys.find(key => key.code === keyCode);
-
-			vorge.system.gamepad.move(key.dir, false);
-		}
-	});
-
-
-
-	window.vorge = vorge;
-
+	window.Vorge = Vorge;
 
 })();

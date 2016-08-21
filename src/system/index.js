@@ -1,7 +1,5 @@
-export * as gamepad from './sys-gamepad';
+export * as util from './sys-util';
 
 export common from './sys-common';
-export load from './sys-load';
-export loop from './sys-loop';
-export menu from './sys-menu';
+export main from './sys-main';
 export state from './sys-state';

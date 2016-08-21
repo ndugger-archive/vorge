@@ -1,53 +1,53 @@
-import { internal } from '../system/sys-state';
-import { moveTypes } from '../system/sys-common';
+import * as State from '../system/sys-state';
+import * as Entities from '../entities';
 
-export function follow (target) {
-	const { camera } = internal;
+export default class Camera {
 
-	camera.target = target;
-}
+	x = 0; 
+	y = 0;
 
-export function update () {
-	const { camera, canvas, map, settings } = internal;
+	target = new Entities.Entity( );
 
-	const isTileBased = settings.movement.type === moveTypes.tile;
-	const notMovingX = camera.target.x === camera.target.destination.x;
-	const notMovingY = camera.target.y === camera.target.destination.y;
-
-	if (!camera.target.moving && (isTileBased && notMovingX && notMovingY)) {
-		return;
-	}
-	
-	const target = {
-		x: Math.round(camera.target.x + (map.gridSize / 2) - (canvas.width / 2)),
-		y: Math.round(camera.target.y + (map.gridSize / 2) - (canvas.height / 2))
-	};
-
-	// Set the proper X coordinate
-	if (map.width < canvas.width) {
-		camera.x = (map.width / 2) - (canvas.width / 2);
-	}
-	else if (target.x + canvas.width >= map.width) {
-		camera.x = map.width - canvas.width;
-	}
-	else if (target.x <= 0) {
-		camera.x = 0;
-	}
-	else {
-		camera.x = target.x;
+	constructor ( x = 0, y = 0 ) {
+		this.x = x;
+		this.y = y;
 	}
 
-	// Set the proper Y coordinate
-	if (map.height < canvas.height) {
-		camera.y = (map.height / 2) - (canvas.height / 2);
+	follow ( target ) {
+		this.target = target;
 	}
-	else if (target.y + canvas.height >= map.height) {
-		camera.y = map.height - canvas.height;
-	}
-	else if (target.y <= 0) {
-		camera.y = 0;
-	}
-	else {
-		camera.y = target.y;
+
+	update ( ) {
+		const { canvas, map } = State.internal;
+		const { gridSize } = map.data.properties;
+		
+		const x = ( this.target.x + ( gridSize / 2 ) - ( canvas.width / 2 ) + 0.5) | 0;
+		const y = ( this.target.y + ( gridSize / 2 ) - ( canvas.height / 2 ) + 0.5) | 0;
+
+		if ( map.data.properties.width < canvas.width ) {
+			this.x = ( map.data.properties.width / 2 ) - ( canvas.width / 2 );
+		}
+		else if ( x + canvas.width >= map.data.properties.width ) {
+			this.x = map.data.properties.width - canvas.width;
+		}
+		else if ( x <= 0 ) {
+			this.x = 0;
+		}
+		else {
+			this.x = x;
+		}
+
+		if ( map.data.properties.height < canvas.height ) {
+			this.y = ( map.data.properties.height / 2 ) - ( canvas.height / 2 );
+		}
+		else if ( y + canvas.height >= map.data.properties.height ) {
+			this.y = map.data.properties.height - canvas.height;
+		}
+		else if ( y <= 0 ) {
+			this.y = 0;
+		}
+		else {
+			this.y = y;
+		}
 	}
 }
