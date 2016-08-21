@@ -1,11 +1,11 @@
-import renderImage from './render-image';
-//import renderCircle from './render-circle';
-//import renderPolygon from './render-polygon';
-//import renderRectangle from './render-rectangle';
-//import renderText from './render-text';
+import renderImage from './image';
+//import renderCircle from './circle';
+//import renderPolygon from './polygon';
+//import renderRectangle from './rectangle';
+//import renderText from './text';
 
 import * as Graphics from '../graphics';
-import * as State from '../system/sys-state';
+import * as State from '../system/state';
 
 export default class Renderer2D {
 

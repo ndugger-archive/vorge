@@ -1,5 +1,5 @@
-import * as Util from '../../system/sys-util';
-import Graphic from '../gfx-graphic';
+import * as Util from '../../system/util';
+import Graphic from '../graphic';
 
 export default class Texture extends Graphic {
 

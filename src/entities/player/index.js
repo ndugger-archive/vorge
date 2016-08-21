@@ -1,6 +1,6 @@
-import * as State from '../../system/sys-state';
+import * as State from '../../system/state';
 
-import Character from '../ent-character';
+import Character from '../character';
 
 export default class Player extends Character {
 

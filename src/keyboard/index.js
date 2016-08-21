@@ -1,5 +1,5 @@
-import * as State from '../system/sys-state';
-import * as Common from '../system/sys-common';
+import * as State from '../system/state';
+import * as Common from '../system/common';
 
 import KeyCodes from './kb-keycodes';
 

@@ -3,6 +3,8 @@ import 'babel-polyfill';
 export * as System from './system';
 export * as Graphics from './graphics';
 export * as Entities from './entities';
+
+export Scripts from './scripts';
 export TileMap from './tilemap';
 
 // ======================================================
@@ -47,7 +49,10 @@ export TileMap from './tilemap';
 	map.load().then(map => map.use());
 
 	const player = new Vorge.Entities.Player(128, 128, { width: 32, height: 48, spritesheet: 'sprite-xp.png' });
-	player.load().then(player => player.use());
+	player.load().then(player => {
+		player.use();
+		Vorge.System.state.camera.follow(player);
+	});
 
 	window.Vorge = Vorge;
 

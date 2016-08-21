@@ -1,5 +1,5 @@
-export * as util from './sys-util';
+export * as util from './util';
 
-export common from './sys-common';
-export main from './sys-main';
-export state from './sys-state';
+export common from './common';
+export main from './main';
+export state from './state';

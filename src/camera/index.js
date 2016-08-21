@@ -1,4 +1,4 @@
-import * as State from '../system/sys-state';
+import * as State from '../system/state';
 import * as Entities from '../entities';
 
 export default class Camera {

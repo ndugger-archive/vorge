@@ -1,3 +1,3 @@
-export Graphic from './gfx-graphic';
-export Text from './gfx-text';
-export Texture from './gfx-texture';
+export Graphic from './graphic';
+export Text from './text';
+export Texture from './texture';

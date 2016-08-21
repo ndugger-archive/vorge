@@ -1,9 +1,9 @@
-import * as State from '../../system/sys-state';
-import * as Util from '../../system/sys-util';
-import * as Common from '../../system/sys-common';
+import * as State from '../../system/state';
+import * as Util from '../../system/util';
+import * as Common from '../../system/common';
 import * as Graphics from '../../graphics';
 
-import Entity from '../ent-entity';
+import Entity from '../entity';
 
 export default class Character extends Entity {
 
@@ -16,7 +16,7 @@ export default class Character extends Entity {
 	sprite = new Graphics.Texture( );
 	attributes = Array( );
 
-	get isTileBasedMovement ( ) {
+	get isGridBasedMovement ( ) {
 		return State.internal.settings.movement.type === Common.moveTypes.grid;
 	}
 
@@ -79,16 +79,16 @@ export default class Character extends Entity {
 		const { gridSize } = map.data.properties;
 		const { speed = 3, width, height } = this.properties;
 
-		if ( this.moving && this.isTileBasedMovement ) {
+		if ( this.moving && this.isGridBasedMovement ) {
 			this.destination = this.findNextTile( );
 		}
 
-		if ( !this.moving && !this.isBetweenTiles && this.isTileBasedMovement ) {
+		if ( !this.moving && !this.isBetweenTiles && this.isGridBasedMovement ) {
 			this.x = this.destination.x;
 			this.y = this.destination.y;
 		}
 
-		if ( this.moving || ( this.isBetweenTiles && this.isTileBasedMovement ) ) {
+		if ( this.moving || ( this.isBetweenTiles && this.isGridBasedMovement ) ) {
 			const walkSpeed = speed * gridSize;
 			const somethingSomethingDynamicWalkingFrameBasedOnNumberOfFrames = false;
 			const walkDestination = walkSpeed * time;

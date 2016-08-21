@@ -1,5 +1,5 @@
-import * as Common from '../sys-common';
-import * as State from '../sys-state';
+import * as Common from '../common';
+import * as State from '../state';
 
 function update ( past = Date.now( ) ) {
 	const now = Date.now( );
@@ -11,7 +11,7 @@ function update ( past = Date.now( ) ) {
 
 	State.internal.frame = ( State.internal.frame + 1 ) % Common.fps;
 
-	window.setTimeout( ( ) => update( now ), Common.timeSecond / Common.fps);
+	window.setTimeout( ( ) => update( now ), Common.timeSecond / Common.fps );
 }
 
 function render ( ) {

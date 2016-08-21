@@ -1,8 +1,8 @@
 import ascii from '../../../ascii';
 
-import * as Loop from '../sys-loop';
-import * as State from '../sys-state';
-import * as Common from '../sys-common';
+import * as Loop from '../loop';
+import * as State from '../state';
+import * as Common from '../common';
 
 import Keyboard from '../../keyboard';
 import Gamepad from '../../gamepad';

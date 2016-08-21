@@ -1,4 +1,4 @@
-import Graphic from '../gfx-graphic';
+import Graphic from '../graphic';
 
 export default class Text extends Graphic {
 

@@ -1,5 +1,5 @@
-import * as State from '../system/sys-state';
-import * as Util from '../system/sys-util';
+import * as State from '../system/state';
+import * as Util from '../system/util';
 import * as Graphics from '../graphics';
 
 function convertDataFromTiledEditor (data) {
@@ -40,6 +40,10 @@ export default class TileMap {
 	}
 
 	async load ( ) {
+
+		if ( typeof this.data === 'string' ) {
+			// TODO Util.load JSON file
+		}
 
 		if ( this.isTiledEditorMap ) {
 			this.data = convertDataFromTiledEditor( this.data );
