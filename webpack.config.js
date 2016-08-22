@@ -7,7 +7,8 @@ module.exports = {
 
     output: {
         path: './dist/',
-        filename: 'vorge.js'
+        filename: 'vorge.js',
+        libraryTarget: 'commonjs2'
     },
 
     module: {
